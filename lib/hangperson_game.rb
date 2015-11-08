@@ -16,10 +16,10 @@ class HangpersonGame
   end
 
   def guess(guessed_word)
-    p "Word is: #{@word}"
-    p "Guessed word is: #{guessed_word}"
-    p "Guesses is #{@guesses}"
-    p "Wrong guesses is: #{@wrong_guesses}"
+#    p "Word is: #{@word}"
+#    p "Guessed word is: #{guessed_word}"
+#    p "Guesses is #{@guesses}"
+#    p "Wrong guesses is: #{@wrong_guesses}"
     if guessed_word.nil? or guessed_word.empty? or guessed_word !~ /\w/
       raise ArgumentError
     end
@@ -32,6 +32,21 @@ class HangpersonGame
         @wrong_guesses = guessed_word
       end
     end
+  end
+
+  def word_with_guesses
+    p "Word = #{@word}"
+    p "Guesses = #{@guesses}"
+    @word.each_char do |letter|
+      p "Letter = #{letter}"
+      if letter == @guesses
+        p "letter matches guess"
+        display << letter
+      else
+        display << '-'
+      end
+    end
+    display
   end
 
   def self.get_random_word
