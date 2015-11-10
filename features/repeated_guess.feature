@@ -9,7 +9,8 @@ Scenario: guess correct letter that I have already tried
   Given I start a new game with word "bumblebee"
   When I guess "b"
   And I guess "b" again
-  Then the word should read "b--b--b--"
+  #Then the word should read "b--b--b--"
+  Then I should see "b--b--b--" within "span.word"
   And I should see "You have already used that letter"
 
 Scenario: guess incorrect letter that I have already tried
@@ -18,6 +19,7 @@ Scenario: guess incorrect letter that I have already tried
   When I guess "z"
   And I guess "z" again
   Then the word should read "-------"
+  Then I should see "-------" in "span.word"
   And I should see "You have already used that letter"
 
 Scenario: guessing an incorrect letter does not count towards guesses
