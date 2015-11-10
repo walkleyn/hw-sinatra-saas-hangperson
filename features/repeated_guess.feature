@@ -19,7 +19,6 @@ Scenario: guess incorrect letter that I have already tried
   When I guess "z"
   And I guess "z" again
   Then the word should read "-------"
-  Then I should see "-------" in "span.word"
   And I should see "You have already used that letter"
 
 Scenario: guessing an incorrect letter does not count towards guesses
