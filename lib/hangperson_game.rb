@@ -50,7 +50,6 @@ class HangpersonGame
     score = word.size
     result = :lose if @wrong_guesses.size == 7
     @guesses.each_char do |guessed_letter|
-      p "guessed_letter is #{guessed_letter}"
       if @word.include?(guessed_letter)
         result = :play
         score -= 1
