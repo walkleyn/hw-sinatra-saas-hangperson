@@ -42,7 +42,7 @@ class HangpersonApp < Sinatra::Base
     begin
       flash[:message] = "You have already used that letter." unless @game.guess(letter)
     rescue Exception => e
-        flash[:message] = e.message
+      flash[:message] = e.message
     end
     redirect '/show'
   end
@@ -60,10 +60,12 @@ class HangpersonApp < Sinatra::Base
   
   get '/win' do
     redirect '/show' unless @game.check_win_or_lose == :win
+    erb :win
   end
   
   get '/lose' do
     redirect '/show' unless @game.check_win_or_lose == :lose
+    erb :lose
   end
   
 end
