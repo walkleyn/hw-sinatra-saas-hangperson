@@ -26,5 +26,6 @@ Scenario: multiple correct and incorrect guesses
 
   Given I start a new game with word "foobar"
   When I make the following guesses: a,z,x,o
-  Then the word should read "-oo-a-"
+  #Then the word should read "-oo-a-"
+  Then I should see "-oo-a-" within "span.word"
   And the wrong guesses should include: z,x
